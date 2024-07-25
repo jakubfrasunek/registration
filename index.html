@@ -5,43 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Form</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #2c3e50, #8e44ad, #c0392b);
+      background-size: cover;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .input-field {
+      margin: 10px 0;
+      position: relative;
+    }
+    .input-field input, .input-field textarea {
+      width: 80%;
+      max-width: 400px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #fff;
+      color: #333;
+    }
+    .input-field label {
+      position: absolute;
+      top: -14px;
+      left: 10px;
+      font-size: 0.9em;
+      color: #fff;
+    }
+    .input-field textarea {
+      resize: none;
+    }
+    .input-field input[type="checkbox"] {
+      width: auto;
+    }
+    button {
+      background: #2980b9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #3498db;
+    }
+    .success-message {
+      display: none;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
-    <form action="https://script.google.com/macros/s/AKfycbyHvyiUu4bBsTWYwJnh98qvyzHHeXQvrzbFTYOQrDFXm0_laORIqTQtP590XOG7tdjZ/exec" method="POST">
-      <h2>Register</h2>
-      <div class="input-field">
-        <input type="text" name="name" required>
-        <label>Enter your name</label>
+    <div class="container">
+      <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbzkOkZVh9ISUBZ4P_iinAQOOmndYUnJE5a9Ghow1xXijB0EENjkKoXROo3JSITF_iW1/exec" method="POST">
+        <h2>Register</h2>
+        <div class="input-field">
+          <input type="text" name="name" required>
+          <label>Enter your name</label>
+        </div>
+        <div class="input-field">
+          <input type="email" name="email" required>
+          <label>Enter your email</label>
+        </div>
+        <div class="input-field">
+          <input type="number" name="price" required>
+          <label>Enter your desired price</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="vat">
+          <label>Enter your VAT number</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="company">
+          <label>Enter your company name</label>
+        </div>
+        <div class="input-field">
+          <textarea name="notes"></textarea>
+          <label>Enter your notes</label>
+        </div>
+        <div class="input-field">
+          <label for="anonymize">
+            <input type="checkbox" id="anonymize" name="anonymize">
+            <p>I want to be anonymized</p>
+          </label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="success-message" id="successMessage">
+        <p>Thank you! Your information was successfully submitted.</p>
+        <p>Your data was inserted into row number: <span id="rowNumber"></span></p>
       </div>
-      <div class="input-field">
-        <input type="email" name="email" required>
-        <label>Enter your email</label>
-      </div>
-      <div class="input-field">
-        <input type="number" name="price" required>
-        <label>Enter your desired price</label>
-      </div>
-      <div class="input-field">
-        <input type="text" name="vat">
-        <label>Enter your VAT number</label>
-      </div>
-      <div class="input-field">
-        <input type="text" name="company">
-        <label>Enter your company name</label>
-      </div>
-      <div class="input-field">
-        <textarea name="notes"></textarea>
-        <label>Enter your notes</label>
-      </div>
-      <div class="input-field">
-        <label for="anonymize">
-          <input type="checkbox" id="anonymize" name="anonymize">
-          <p>I want to be anonymized</p>
-        </label>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   </div>
+  
+  <script>
+    const form = document.getElementById('registrationForm');
+    const successMessage = document.getElementById('successMessage');
+    const rowNumberSpan = document.getElementById('rowNumber');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const formData = new FormData(form);
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      }).then(response => response.text())
+        .then(data => {
+          // Display success message and row number
+          rowNumberSpan.textContent = data;
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+        }).catch(error => {
+          console.error('Error:', error);
+        });
+    });
+  </script>
 </body>
 </html>
