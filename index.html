@@ -20,35 +20,33 @@
         <h2>Register</h2>
         <div class="input-field">
           <input type="text" name="name" required>
-          <label>Enter your name</label>
+          <label>Jméno a příjmení</label>
+        </div>
+        <div class="input-field">
+            <input type="checkbox" id="anonymize" name="anonymize">
+            <label>Chci zveřejnit anonymně</label>
         </div>
         <div class="input-field">
           <input type="email" name="email" required>
-          <label>Enter your email</label>
+          <label>Email</label>
         </div>
         <div class="input-field">
           <input type="number" name="price" required>
-          <label>Enter your desired price</label>
-        </div>
-        <div class="input-field">
-          <input type="text" name="vat">
-          <label>Enter your VAT number</label>
+          <label>Výsledná cena za výtisk na zakázku</label>
         </div>
         <div class="input-field">
           <input type="text" name="company">
-          <label>Enter your company name</label>
+          <label>Název firmy (dobrovolné)</label>
+        </div>
+        <div class="input-field">
+          <input type="text" name="vat">
+          <label>IČO (dobrovolné)</label>
         </div>
         <div class="input-field">
           <textarea name="notes"></textarea>
-          <label>Enter your notes</label>
+          <label>Poznámka</label>
         </div>
-        <div class="input-field">
-          <label for="anonymize">
-            <input type="checkbox" id="anonymize" name="anonymize">
-            <p>I want to be anonymized</p>
-          </label>
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Zaregistrovat</button>
       </form>
       <div class="success-message" id="successMessage">
         <p>Thank you! Your information was successfully submitted.</p>
