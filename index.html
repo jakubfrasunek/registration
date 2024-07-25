@@ -1,35 +1,46 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glassmorphism Login Form | CodingNepal</title>
+  <title>Registration Form</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrapper">
-    <form action="#">
-      <h2>Login</h2>
-        <div class="input-field">
-        <input type="text" required>
+    <form action="https://script.google.com/macros/s/AKfycbyHvyiUu4bBsTWYwJnh98qvyzHHeXQvrzbFTYOQrDFXm0_laORIqTQtP590XOG7tdjZ/exec" method="POST">
+      <h2>Register</h2>
+      <div class="input-field">
+        <input type="text" name="name" required>
+        <label>Enter your name</label>
+      </div>
+      <div class="input-field">
+        <input type="email" name="email" required>
         <label>Enter your email</label>
       </div>
       <div class="input-field">
-        <input type="password" required>
-        <label>Enter your password</label>
+        <input type="number" name="price" required>
+        <label>Enter your desired price</label>
       </div>
-      <div class="forget">
-        <label for="remember">
-          <input type="checkbox" id="remember">
-          <p>Remember me</p>
+      <div class="input-field">
+        <input type="text" name="vat">
+        <label>Enter your VAT number</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="company">
+        <label>Enter your company name</label>
+      </div>
+      <div class="input-field">
+        <textarea name="notes"></textarea>
+        <label>Enter your notes</label>
+      </div>
+      <div class="input-field">
+        <label for="anonymize">
+          <input type="checkbox" id="anonymize" name="anonymize">
+          <p>I want to be anonymized</p>
         </label>
-        <a href="#">Forgot password?</a>
       </div>
-      <button type="submit">Log In</button>
-      <div class="register">
-        <p>Don't have an account? <a href="#">Register</a></p>
-      </div>
+      <button type="submit">Submit</button>
     </form>
   </div>
 </body>
