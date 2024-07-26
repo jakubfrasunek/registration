@@ -21,14 +21,17 @@
     }
     .container {
       background: rgba(0, 0, 0, 0.6);
+      position: relative;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       text-align: center;
     }
     .logo {
-      font-size: 3em;
+      font-weight: 200;
+      font-size: 8em;
       margin-bottom: 20px;
+      letter-spacing: 0.1em;
     }
     .headline {
       font-size: 2em;
@@ -36,7 +39,14 @@
     }
     .text {
       font-size: 1.2em;
+      display: flex;
+      justify-content: space-around;
       margin-bottom: 40px;
+    }
+    .column {
+      width: 45%;
+      text-align: left;
+      font-size: 1.2em;
     }
     button {
       background: #2980b9;
@@ -50,6 +60,16 @@
     button:hover {
       background: #3498db;
     }
+    .images {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .images img {
+      margin: 0 10px;
+      width: 50px;
+      height: 50px;
+    }
   </style>
 </head>
 <body>
@@ -57,9 +77,19 @@
     <div class="logo">Your Logo</div>
     <div class="headline">Welcome to Our Service</div>
     <div class="text">
-      Thank you for visiting our service. We are here to help you with all your printing needs. If you have any questions or need further assistance, feel free to reach out to us.
+      <div class="column">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+      </div>
+      <div class="column">
+        <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor.</p>
+      </div>
     </div>
     <button onclick="window.location.href='YOUR_LINK_HERE'">Learn More</button>
+    <div class="images">
+      <img src="https://via.placeholder.com/50" alt="Random Image 1">
+      <img src="https://via.placeholder.com/50" alt="Random Image 2">
+      <img src="https://via.placeholder.com/50" alt="Random Image 3">
+    </div>
   </div>
 </body>
 </html>
